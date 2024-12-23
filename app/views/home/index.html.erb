@@ -1,0 +1,11 @@
+<%= link_to 'home', "/" %>
+
+<h1>Hola <%= @name %></h1>
+
+<%# <% if nombre == "raul" %>
+<%#     <h2>Hola <%= @nombre ></h2>%>
+<%# <% end %>
+
+<% @skills.each do |skill| %>
+    <p><%= skill %></p>  
+<% end %>
