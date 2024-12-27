@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'courses/', to: 'courses#index'
-  get 'courses/new'
+  get 'courses/', to: 'courses#index', as: 'courses_index'
+  get 'courses/new', as: 'courses_new'
   get 'courses/:id', to: 'courses#show'
   get 'courses/:id/edit', to: 'courses#edit'
   post 'courses', to: 'courses#create'
@@ -8,16 +8,20 @@ Rails.application.routes.draw do
   delete 'courses/:id', to: 'courses#destroy', as: 'delete_course'
 
 
-  get 'skills/new'
-  post 'skills/create'
+  # routes for tests
+  post "/search" => "pokemons#search"
+
+
+  get 'skills/new', as: 'skills_new'
+  post 'skills/create', as: 'skills_create'
   
-  get 'greetings/new'
-  post 'greetings/create'
+  get 'greetings/new', as: 'greetings_new'
+  post 'greetings/create', as: 'greetings_create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
   get "home/index"
 
-  root "home#index"
+  root "pokemons#index"
 end

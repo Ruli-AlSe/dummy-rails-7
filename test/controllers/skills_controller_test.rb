@@ -7,7 +7,7 @@ class SkillsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get skills_create_url
+    post skills_create_url params: {skills: 'ruby, rails'}
     assert_response :success
   end
 end

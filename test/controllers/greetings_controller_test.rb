@@ -7,7 +7,7 @@ class GreetingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get greetings_create_url
+    post greetings_create_url
     assert_response :success
   end
 end
