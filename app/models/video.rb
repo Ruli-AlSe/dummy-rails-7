@@ -5,12 +5,23 @@
 #  id          :integer          not null, primary key
 #  title       :string
 #  description :string
-#  visible     :string
-#  duration    :integer
+#  visible     :boolean          default(FALSE)
+#  duration    :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  course_id   :integer          not null
 #
 class Video < ApplicationRecord
+  belongs_to :course
+  has_many :video_categories
+  # normal relationship
+  # has_many :categories, through: :video_categories
+
+  # With lambda functions
+  has_many :categories, -> {where('categories.visible = ?', true)}, through: :video_categories
+
+
+
   validates :title, presence: true
   validates :title, length: {maximum: 200, minimum: 2}
 

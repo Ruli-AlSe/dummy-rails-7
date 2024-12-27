@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_24_022617) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_27_011841) do
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "visible", default: true
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -20,6 +27,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_022617) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "video_categories", force: :cascade do |t|
+    t.integer "video_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_video_categories_on_category_id"
+    t.index ["video_id"], name: "index_video_categories_on_video_id"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -27,6 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_022617) do
     t.integer "duration", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_id", null: false
+    t.index ["course_id"], name: "index_videos_on_course_id"
   end
 
+  add_foreign_key "video_categories", "categories"
+  add_foreign_key "video_categories", "videos"
+  add_foreign_key "videos", "courses"
 end

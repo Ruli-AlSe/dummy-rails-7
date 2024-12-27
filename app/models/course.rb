@@ -11,4 +11,6 @@
 #  updated_at  :datetime         not null
 #
 class Course < ApplicationRecord
+  has_many :videos
+  has_many :categories, through: :videos, source: :categories
 end
