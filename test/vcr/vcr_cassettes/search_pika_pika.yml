@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pokeapi.co/api/v2/pokemon/pika%20pika
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - pokeapi.co
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 27 Dec 2024 08:44:01 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Content-Length:
+      - '9'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - public, max-age=432000, s-maxage=432000
+      Etag:
+      - W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"
+      Function-Execution-Id:
+      - c9x8xj2d4lej
+      X-Cloud-Trace-Context:
+      - a7422a89ad6472c2d7b885048f949a13
+      X-Powered-By:
+      - Express
+      X-Served-By:
+      - cache-mia-kmia1760020-MIA
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1735286184.387992,VS0,VE1191
+      Vary:
+      - Accept-Encoding, x-fh-requested-host, accept-encoding
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - HIT
+      Age:
+      - '2856'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=3dvH1iP4%2FzT38OOMKtDLgYvab2qlTRs1tJ%2BDScL4JIcPZlHZkirkCUpQPhgp6sNdCdmlIKeskXzoRLmeCR%2B%2FuaXIsTVoVAldGXbSN7WXZMolxZEQ9GwzNek%2FURQwzJllYUsgr%2FqCbEav"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f8806ba6cd8e5c6-DFW
+      Server-Timing:
+      - cfL4;desc="?proto=TCP&rtt=35994&min_rtt=35607&rtt_var=10349&sent=5&recv=7&lost=0&retrans=0&sent_bytes=2789&recv_bytes=764&delivery_rate=110476&cwnd=252&unsent_bytes=0&cid=5936ffd6f8a24b87&ts=51&x=0"
+    body:
+      encoding: UTF-8
+      string: Not Found
+  recorded_at: Fri, 27 Dec 2024 08:44:00 GMT
+recorded_with: VCR 6.3.1
