@@ -14,6 +14,8 @@
 class Video < ApplicationRecord
   belongs_to :course
   has_many :video_categories
+  has_many :comments, as: :commentable
+  has_many :categories, through: :video_categories, after_add: :new_category
   # normal relationship
   # has_many :categories, through: :video_categories
 
@@ -48,5 +50,9 @@ class Video < ApplicationRecord
 
   def validate_custom_title
     errors.add(:title, "Invilid title text") if title == 'codigofacilito'
+  end
+
+  def new_category(category)
+    puts "New category \"#{category.title}\" added to video #{title}"
   end
 end

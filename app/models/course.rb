@@ -13,4 +13,5 @@
 class Course < ApplicationRecord
   has_many :videos
   has_many :categories, through: :videos, source: :categories
+  has_many :comments, as: :commentable
 end
